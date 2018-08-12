@@ -1,0 +1,44 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" class="no-js" lang="en" dir="ltr">
+<head>
+<title>ANDWEL - LOGIN</title>
+<link rel="stylesheet" type="text/css" media="all" href="../css/foundation.css">
+<link rel="stylesheet" type="text/css" media="all" href="../css/app.css">
+<link rel="stylesheet" type="text/css" media="all" href="../css/andwel-common.css">
+<link rel="stylesheet" type="text/css" media="all" href="../css/login.css">
+</head>
+<body>
+	<div class="row column align-center medium-6 large-4 container-padded">
+		<div class="login-logo">
+			<p class="logo">ANDWEL</p>
+		</div>
+		<form action="#" th:action="@{/admin/login}" th:object="${loginForm}" method="post">
+			<!-- /* メッセージ出力エリア */ -->
+			<ul>
+				<li th:each="e : ${#fields.detailedErrors()}" th:class="fielderrMsg" th:text="${e.message}" />
+			</ul>
+			<ul th:if="${msg != null}">
+				<li th:class="globalerrMsg" th:text="${msg}" />
+			</ul>
+			<h5 class="text-center">ANDWELアカウントでログイン</h5>
+			<label>メールアドレス<input placeholder="andwel@example.com" type="email" th:field="*{mailAddress}" th:errorclass="fieldError"></label>
+			<label>パスワード<input placeholder="パスワード" type="password" th:field="*{password}" th:errorclass="fieldError"></label>
+			<p>
+				<input class="button expanded" value="ログイン" type="submit">
+			</p>
+			<p class="text-center">
+				<a th:href="@{'/users/newPassword/'}">パスワードを忘れた方はこちら</a>
+			</p>
+		</form>
+		<p class="text-center">
+			<a th:href="@{'/users/signUp/'}">まだアカウントをお持ちでない方はこちら</a>
+		</p>
+	</div>
+
+	<!-- フッター -->
+	<div layout:replace="~{footer::footer}"></div>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="jp.co.musubisu.andwel.dao.master.MstUserDao">
+    <select id="auth" parameterType="java.util.Map" resultType="jp.co.musubisu.andwel.dto.master.UserInfoDto">
+        SELECT
+            muser.user_id AS userId,
+            muser.mail_address AS mailAddress,
+            pgp_sym_decrypt(muser.password,'musubisu') AS password,
+            muser.first_name AS firstName,
+            muser.first_name_kana AS firstNameKana,
+            muser.last_name AS lastName,
+            muser.last_name_kana AS lastNameKana,
+            muser.version_no AS versionNo,
+            muser.del_flg AS delFlg,
+            muser.insert_user_id AS insertUserId,
+            muser.insert_datetime AS insertDatetime,
+            muser.update_user_id AS updateUserId,
+            muser.update_datetime AS updateDatetime,
+            company.company_id AS companyId,
+            company.company_name AS companyName
+        FROM MST_USER muser
+        INNER JOIN MST_LINK_COMPANY_USER link
+        ON muser.user_id = link.user_id
+        INNER JOIN MST_COMPANY company
+        ON link.company_id = company.company_id
+        WHERE
+            muser.mail_address = #{mailAddress}
+        AND pgp_sym_decrypt(muser.password,'musubisu') = #{password}
+        AND muser.del_flg = '0'
+    </select>
+</mapper>

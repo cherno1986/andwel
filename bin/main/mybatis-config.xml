@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+    	<!--
+    	Lazy Loading（遅延読み込み）の有効／無効を切り替えるグローバルな設定です。
+		無効にした場合、association として指定されているデータは直ちに読み込まれます。
+		association 要素で fetchType 属性が指定されている場合はそちらの指定が優先されます。
+    	 -->
+        <setting name="lazyLoadingEnabled" value="true" />
+        <!--
+        列名の代わりに列ラベルを使用します。
+		ドライバによって動作が異なります。
+		ドライバのドキュメントを参照するか、両方のモードを試して動作を確認してください。
+         -->
+        <setting name="useColumnLabel" value="true" />
+        <!--
+        データベースにある A_COLUMN のようなアンダースコアを含む列を
+		Camel Case の Java プロパティ aColumn に自動的にマッピングする機能の
+		有効／無効を切り替えます。
+         -->
+        <setting name="mapUnderscoreToCamelCase" value="false" />
+    </settings>
+</configuration>

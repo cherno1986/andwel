@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="jp.co.musubisu.andwel.dao.transaction.TrnLoginLogoutHistoryDao">
+    <insert id="insert" parameterType="jp.co.musubisu.andwel.entity.transaction.TrnLoginLogoutHistory">
+        INSERT INTO TRN_LOGIN_LOGOUT_HISTORY
+        (
+            user_id,
+            login_logout_div,
+            insert_user_id,
+            insert_datetime,
+            update_user_id,
+            update_datetime
+        ) VALUES (
+            #{userId},
+            #{loginLogoutDiv},
+            #{insertUserId},
+            now(),
+            #{updateUserId},
+            now()
+        )
+    </insert>
+</mapper>

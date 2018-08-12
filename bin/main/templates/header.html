@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<body>
+<!-- ヘッダー -->
+	<div layout:fragment="header" class="row expanded app-dashboard-top-nav-bar">
+		<div class="columns medium-2">
+			<button data-toggle="app-dashboard-sidebar"
+				class="menu-icon hide-for-large"></button>
+			<a href="#" class="app-dashboard-logo logo">ANDWEL</a>
+		</div>
+		<div class="columns show-for-medium">
+			<div class="app-dashboard-search-bar-container user-navigation">
+			[[${session.userInfo.companyName}]]｜[[${session.userInfo.mailAddress}]]
+			</div>
+		</div>
+		<div class="columns shrink app-dashboard-top-bar-actions">
+			<a href="/logout"><button class="button hollow">Logout</button></a>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<!--/* ヘッダ */-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--/* 各ビュータイトル */-->
+<title layout:title-pattern="$CONTENT_TITLE | $LAYOUT_TITLE">ANDWEL</title>
+
+<!--/* 必ず読み込むCSSファイル */-->
+<link rel="stylesheet" type="text/css" media="all" href="../../css/foundation.css">
+<link rel="stylesheet" type="text/css" media="all" href="../../css/app.css">
+<link rel="stylesheet" type="text/css" media="all" href="../../css/andwel-common.css">
+
+</head>
+<body>
+<!--/* メインコンテンツ */-->
+<div class="app-dashboard shrink-medium">
+	<!--/* ヘッダ */-->
+	<div layout:replace="~{header::header}"></div>
+
+	<div class="app-dashboard-body off-canvas-wrapper">
+		<!-- ナビゲーション -->
+		<div layout:replace="~{navi::navbar}"></div>
+		<!--/* メイン */-->
+		<div layout:fragment="main" class="app-dashboard-body-content off-canvas-content" data-off-canvas-content>
+		</div>
+	</div>
+</div>
+
+<!-- フッター -->
+<div layout:replace="~{footer::footer}"></div>
+
+<!-- javascript -->
+<script type="text/javascript" src="../../js/vender/jquery.js"></script>
+<script type="text/javascript" src="../../js/vender/foundation.js"></script>
+<script type="text/javascript" src="../../js/vender/what-input.js"></script>
+<script type="text/javascript" src="../../js/vender/jquery.js"></script>
+<script type="text/javascript" src="../../js/app.js"></script>
+<script type="text/javascript" src="../../js/andwel-common.js"></script>
+<script type="text/javascript" src="../../js/notify.min.js"></script>
+
+</body>
+</html>

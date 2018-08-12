@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<body>
+<!-- ナビゲーション -->
+<div layout:fragment="navbar">
+	<div id="app-dashboard-sidebar" class="app-dashboard-sidebar position-left off-canvas off-canvas-absolute reveal-for-large" data-off-canvas>
+		<div class="app-dashboard-sidebar-title-area menu-area"></div>
+		<div class="app-dashboard-sidebar-inner">
+			<ul class="vertical menu accordion-menu" data-accordion-menu>
+				<li>
+					<a href="#">従業員情報</a>
+					<ul class="menu vertical nested">
+						<li><a href="../../users/regist.html">従業員情報追加（個別）</a></li>
+						<li><a href="../../users/csv_upload.html">従業員情報追加（CSV）</a></li>
+						<li><a href="../../users/search.html">従業員情報検索</a></li>
+						<li><a href="../../authority/list.html">従業員権限設定</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="../../top/index.html">ユーザーTOPへ</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
