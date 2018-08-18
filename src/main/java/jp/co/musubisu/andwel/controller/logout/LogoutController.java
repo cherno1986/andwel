@@ -53,6 +53,7 @@ public class LogoutController {
 			log.error("セッションからユーザ情報が取得できませんでした。");
 			// セッション破棄
 			this.session.invalidate();
+			return "login/admin/index";
 		}
 
 		// ログアウト履歴登録
@@ -60,6 +61,7 @@ public class LogoutController {
 			this.logoutService.logoutHistoryInsert(userInfo.getUserId());
 		} catch (Exception e) {
         	log.error("DBエラーが発生しました。", e);
+        	this.session.invalidate();
 			return "login/admin/index";
         }
 

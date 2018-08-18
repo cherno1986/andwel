@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import jp.co.musubisu.andwel.dto.master.MstUserDto;
 import jp.co.musubisu.andwel.dto.master.UserInfoDto;
 
 
@@ -17,5 +18,12 @@ public interface MstUserDao {
 	 * @return
 	 */
 	UserInfoDto auth(Map<String,String> param);
+
+	/**
+	 * メールアドレス検索
+	 * @param mailAddress
+	 * @return
+	 */
+	MstUserDto findByMailAddress(String mailAddress);
 
 }

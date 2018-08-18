@@ -3,11 +3,14 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" class="no-js" lang="en" dir="ltr">
 <head>
-<title>ANDWEL - LOGIN</title>
-<link rel="stylesheet" type="text/css" media="all" href="../css/foundation.css">
-<link rel="stylesheet" type="text/css" media="all" href="../css/app.css">
-<link rel="stylesheet" type="text/css" media="all" href="../css/andwel-common.css">
-<link rel="stylesheet" type="text/css" media="all" href="../css/login.css">
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ANDWEL - LOGIN</title>
+	<link rel="stylesheet" type="text/css" media="all" href="/css/foundation.css" th:src="@{/css/foundation.css}">
+	<link rel="stylesheet" type="text/css" media="all" href="/css/app.css" th:src="@{/css/app.css}">
+	<link rel="stylesheet" type="text/css" media="all" href="/css/andwel-common.css" th:src="@{/css/andwel-common.css}">
+	<link rel="stylesheet" type="text/css" media="all" href="/css/login.css" th:src="@{/css/login.css}">
 </head>
 <body>
 	<div class="row column align-center medium-6 large-4 container-padded">
@@ -29,11 +32,11 @@
 				<input class="button expanded" value="ログイン" type="submit">
 			</p>
 			<p class="text-center">
-				<a th:href="@{'/users/newPassword/'}">パスワードを忘れた方はこちら</a>
+				<a href="/users/newPassword">パスワードを忘れた方はこちら</a>
 			</p>
 		</form>
 		<p class="text-center">
-			<a th:href="@{'/users/signUp/'}">まだアカウントをお持ちでない方はこちら</a>
+			<a href="/users/signup">まだアカウントをお持ちでない方はこちら</a>
 		</p>
 	</div>
 

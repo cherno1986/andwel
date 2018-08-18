@@ -1,6 +1,5 @@
 package jp.co.musubisu.andwel.controller.login;
 
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -13,20 +12,17 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import jp.co.musubisu.andwel.controller.common.CommonController;
 import jp.co.musubisu.andwel.dto.master.UserInfoDto;
 import jp.co.musubisu.andwel.form.login.LoginForm;
 import jp.co.musubisu.andwel.service.login.LoginService;
 
 
 @Controller
-public class LoginController {
+public class LoginController extends CommonController {
 
 	/** ロガー **/
 	private static final Logger log = LoggerFactory.getLogger(LoginController.class);
-
-	/** セッション **/
-	@Autowired
-	private HttpSession session;
 
 	/** ログインサービス **/
 	@Autowired
@@ -88,7 +84,7 @@ public class LoginController {
         }
 
 		// ユーザ情報をセッションに保持する。
-		this.session.setAttribute("userInfo", userDto);
+		super.setSessionUserInfo(userDto);
 
 		log.info("ログイン処理終了");
         return "redirect:/top/admin/";

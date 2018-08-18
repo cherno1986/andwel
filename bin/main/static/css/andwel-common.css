@@ -560,3 +560,18 @@ a:hover, a:focus {
 .globalerrMsg {
   color: blue;
 }
+
+input[type="text"].phone-number {
+    width: 60px;
+    display: inline-table;
+}
+
+.phone-dash {
+    padding: 0 4px;
+}
+
+.msg-area-error {
+    background-color: #ffebe8;
+    padding: 8px;
+    /* font-size: 16px; */
+}

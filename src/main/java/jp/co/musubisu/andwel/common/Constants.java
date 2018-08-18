@@ -6,5 +6,6 @@ package jp.co.musubisu.andwel.common;
  */
 public class Constants {
 
+	public static final Long DUMMY_USER_ID = 0L;
 
 }

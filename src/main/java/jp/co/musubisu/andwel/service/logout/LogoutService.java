@@ -2,6 +2,7 @@ package jp.co.musubisu.andwel.service.logout;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import jp.co.musubisu.andwel.service.LoginLogoutHistoryService;
 import jp.co.musubisu.andwel.values.LoginLogoutDiv;
@@ -20,6 +21,7 @@ public class LogoutService {
 	 * ログアウト履歴登録
 	 * @param userId
 	 */
+	@Transactional
 	public void logoutHistoryInsert(final Long userId) {
 		this.loginLogoutHistoryService.insert(userId, LoginLogoutDiv.LOGOUT.getValue());
 	}

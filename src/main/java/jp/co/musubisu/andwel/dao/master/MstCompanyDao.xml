@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="jp.co.musubisu.andwel.dao.master.MstCompanyDao">
+    <select id="findByMailAddress" parameterType="java.lang.String" resultType="jp.co.musubisu.andwel.dto.master.MstCompanyDto">
+    	SELECT
+    	    *
+    	FROM MST_COMPANY
+    	WHERE
+    	    mail_address = #{mailAddress}
+    	    AND del_flg = '0'
+    </select>
+
+
+    <insert id="insert" parameterType="jp.co.musubisu.andwel.entity.master.MstCompany">
+        INSERT INTO MST_COMPANY
+        (
+            mail_address,
+            password,
+            company_name,
+            phone_number1,
+            phone_number2,
+            phone_number3,
+            insert_user_id,
+            insert_datetime,
+            update_user_id,
+            update_datetime
+        ) VALUES (
+            #{mailAddress},
+            pgp_sym_encrypt(#{password},'musubisu'),
+            #{companyName},
+            #{phoneNumber1},
+            #{phoneNumber2},
+            #{phoneNumber3},
+            #{insertUserId},
+            now(),
+            #{updateUserId},
+            now()
+        )
+    </insert>
+
+</mapper>

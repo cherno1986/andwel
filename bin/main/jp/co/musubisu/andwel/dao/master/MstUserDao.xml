@@ -29,4 +29,13 @@
         AND pgp_sym_decrypt(muser.password,'musubisu') = #{password}
         AND muser.del_flg = '0'
     </select>
+
+    <select id="findByMailAddress" parameterType="java.lang.String" resultType="jp.co.musubisu.andwel.dto.master.MstUserDto">
+    	SELECT
+    	    *
+    	FROM MST_USER
+    	WHERE
+    	    mail_address = #{mailAddress}
+    	    AND del_flg = '0'
+    </select>
 </mapper>
